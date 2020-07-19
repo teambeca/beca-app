@@ -14,3 +14,5 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+file: ![alt-text](https://github.com/teambeca/beca-app/blob/master/public/beca_app_status_record_1.gif)
