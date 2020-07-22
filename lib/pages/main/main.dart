@@ -1,17 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:beca_app/main.dart';
 import 'package:beca_app/navigation/tabbar.gr.dart';
-import 'package:beca_app/pages/leader_board.dart';
-import 'package:beca_app/pages/play.dart';
-import 'package:beca_app/pages/profile.dart';
-import 'package:beca_app/pages/settings.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class MainPagesTabbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async => !await rootExNavigatorKey.currentState.maybePop(),
+      onWillPop: () async => !await homeExNavigatorKey.currentState.maybePop(),
       child: Scaffold(
         body: ExtendedNavigator(
           key: tabbarExNavigatorKey,
@@ -63,34 +59,28 @@ class _BottomNavState extends State<BottomNav> {
 }
 
 class TabNavigationItem {
-  final Widget page;
   final Widget title;
   final Icon icon;
 
   TabNavigationItem({
-    @required this.page,
     @required this.title,
     @required this.icon,
   });
 
   static List<TabNavigationItem> get items => [
         TabNavigationItem(
-          page: LeaderBoardPage(),
           icon: Icon(Icons.home),
           title: Text("LeaderBoard"),
         ),
         TabNavigationItem(
-          page: PlayPage(),
           icon: Icon(Icons.play_arrow),
           title: Text("Play"),
         ),
         TabNavigationItem(
-          page: ProfilePage(),
           icon: Icon(Icons.account_circle),
           title: Text("Profile"),
         ),
         TabNavigationItem(
-          page: SettingsPage(),
           icon: Icon(Icons.settings),
           title: Text("Settings"),
         ),

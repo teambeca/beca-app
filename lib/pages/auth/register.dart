@@ -1,5 +1,3 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:beca_app/navigation/main.gr.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -13,7 +11,10 @@ class RegisterPage extends StatelessWidget {
         child: Center(
           child: RaisedButton(
             onPressed: () {
-              ExtendedNavigator.root.replace(Routes.loginPage);
+              Scaffold.of(context).showSnackBar(SnackBar(
+                content: Text('Not Implemented'),
+                duration: Duration(seconds: 1),
+              ));
             },
             child: Text("Go to Login"),
           ),

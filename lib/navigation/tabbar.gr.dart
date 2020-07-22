@@ -9,10 +9,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../pages/leader_board.dart';
-import '../pages/play.dart';
-import '../pages/profile.dart';
-import '../pages/settings.dart';
+import '../pages/main/leader_board.dart';
+import '../pages/main/play.dart';
+import '../pages/main/profile.dart';
+import '../pages/main/settings.dart';
 
 class TabbarRoutes {
   static const String leaderBoardPage = '/';
