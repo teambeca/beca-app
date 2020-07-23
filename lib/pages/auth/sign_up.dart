@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class RegisterPage extends StatelessWidget {
+class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Register Page"),
+        title: Text("SignUp Page"),
       ),
       body: Container(
         child: Center(
@@ -16,7 +16,7 @@ class RegisterPage extends StatelessWidget {
                 duration: Duration(seconds: 1),
               ));
             },
-            child: Text("Go to Login"),
+            child: Text("Go to SignIn"),
           ),
         ),
       ),

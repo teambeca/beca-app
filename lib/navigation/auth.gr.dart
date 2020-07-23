@@ -9,18 +9,18 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../pages/auth/login.dart';
-import '../pages/auth/register.dart';
+import '../pages/auth/sign_in.dart';
+import '../pages/auth/sign_up.dart';
 import '../pages/auth/start.dart';
 
 class AuthRoutes {
   static const String startPage = '/';
-  static const String loginPage = '/login-page';
-  static const String registerPage = '/register-page';
+  static const String signInPage = '/sign-in-page';
+  static const String signUpPage = '/sign-up-page';
   static const all = <String>{
     startPage,
-    loginPage,
-    registerPage,
+    signInPage,
+    signUpPage,
   };
 }
 
@@ -29,8 +29,8 @@ class AuthRouter extends RouterBase {
   List<RouteDef> get routes => _routes;
   final _routes = <RouteDef>[
     RouteDef(AuthRoutes.startPage, page: StartPage),
-    RouteDef(AuthRoutes.loginPage, page: LoginPage),
-    RouteDef(AuthRoutes.registerPage, page: RegisterPage),
+    RouteDef(AuthRoutes.signInPage, page: SignInPage),
+    RouteDef(AuthRoutes.signUpPage, page: SignUpPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -41,15 +41,15 @@ class AuthRouter extends RouterBase {
         settings: data,
       );
     },
-    LoginPage: (data) {
+    SignInPage: (data) {
       return MaterialPageRoute<dynamic>(
-        builder: (context) => LoginPage(),
+        builder: (context) => SignInPage(),
         settings: data,
       );
     },
-    RegisterPage: (data) {
+    SignUpPage: (data) {
       return MaterialPageRoute<dynamic>(
-        builder: (context) => RegisterPage(),
+        builder: (context) => SignUpPage(),
         settings: data,
       );
     },

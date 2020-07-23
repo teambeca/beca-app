@@ -13,9 +13,9 @@ class LeaderBoardPage extends StatelessWidget {
         child: Center(
           child: RaisedButton(
             onPressed: () {
-              BlocProvider.of<AuthBloc>(context).add(AuthLogOut());
+              BlocProvider.of<AuthBloc>(context).add(AuthSignOut());
             },
-            child: Text("Log Out"),
+            child: Text("Sign Out"),
           ),
         ),
       ),

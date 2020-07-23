@@ -49,7 +49,7 @@ packages:
       name: bloc
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.1"
+    version: "6.0.1"
   build:
     dependency: transitive
     description:
@@ -100,9 +100,16 @@ packages:
     source: hosted
     version: "4.3.2"
   built_value:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: built_value
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "7.1.0"
+  built_value_generator:
+    dependency: "direct dev"
+    description:
+      name: built_value_generator
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.1.0"
@@ -120,6 +127,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  chopper:
+    dependency: "direct main"
+    description:
+      name: chopper
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.5.3"
+  chopper_generator:
+    dependency: "direct dev"
+    description:
+      name: chopper_generator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.5.0"
   code_builder:
     dependency: transitive
     description:
@@ -155,13 +176,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.16.1"
-  cubit:
-    dependency: transitive
-    description:
-      name: cubit
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.2"
   dart_style:
     dependency: transitive
     description:
@@ -194,14 +208,7 @@ packages:
       name: flutter_bloc
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.1"
-  flutter_cubit:
-    dependency: transitive
-    description:
-      name: flutter_cubit
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.1"
+    version: "6.0.1"
   glob:
     dependency: transitive
     description:
@@ -223,6 +230,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.14.0+3"
+  http:
+    dependency: transitive
+    description:
+      name: http
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.12.2"
   http_multi_server:
     dependency: transitive
     description:

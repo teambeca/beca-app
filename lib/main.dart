@@ -1,25 +1,36 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:beca_app/pages/auth/auth.dart';
 import 'package:beca_app/pages/main/main.dart';
+import 'package:beca_app/service/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:logging/logging.dart';
 
 import 'bloc/auth_bloc.dart';
 import 'pages/splash.dart';
-import 'repository/auth_repo.dart';
 
 final homeExNavigatorKey = GlobalKey<ExtendedNavigatorState>();
 final tabbarExNavigatorKey = GlobalKey<ExtendedNavigatorState>();
 
+void _setupLogging() {
+  Logger.root.level = Level.ALL;
+  Logger.root.onRecord.listen((rec) {
+    print('${rec.level.name}: ${rec.time}: ${rec.message}');
+  });
+}
+
 void main() {
-  final authRepository = AuthRepository();
-  runApp(
-    BlocProvider<AuthBloc>(
-      create: (context) =>
-          AuthBloc(authRepository: authRepository)..add(AuthStarted()),
-      child: App(),
-    ),
-  );
+  _setupLogging();
+
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider<AuthBloc>(
+        create: (context) =>
+            AuthBloc(authService: AuthService.create())..add(AuthStarted()),
+      ),
+    ],
+    child: App(),
+  ));
 }
 
 class App extends StatelessWidget {

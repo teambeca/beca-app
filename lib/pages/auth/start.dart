@@ -24,7 +24,7 @@ class StartPage extends StatelessWidget {
                 child: RaisedButton(
                   padding: EdgeInsets.symmetric(vertical: 20),
                   onPressed: () {
-                    ExtendedNavigator.root.replace(AuthRoutes.loginPage);
+                    ExtendedNavigator.root.replace(AuthRoutes.signInPage);
                   },
                   child: Text("SIGN IN"),
                 ),
@@ -37,7 +37,7 @@ class StartPage extends StatelessWidget {
                 child: RaisedButton(
                   padding: EdgeInsets.symmetric(vertical: 20),
                   onPressed: () {
-                    ExtendedNavigator.root.replace(AuthRoutes.registerPage);
+                    ExtendedNavigator.root.replace(AuthRoutes.signUpPage);
                   },
                   child: Text("SIGN UP"),
                 ),
@@ -61,7 +61,7 @@ class StartPage extends StatelessWidget {
                   padding: EdgeInsets.symmetric(vertical: 20),
                   onPressed: () {
                     BlocProvider.of<AuthBloc>(context).add(
-                        AuthLogInRequest(username: "asd", password: "asda"));
+                        AuthSignIn(username: "asdasd", password: "qweqwe"));
                   },
                   child: Text("CONTINUE ANONYMOUS"),
                 ),

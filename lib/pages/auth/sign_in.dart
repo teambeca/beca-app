@@ -2,7 +2,7 @@ import 'package:beca_app/bloc/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginPage extends StatelessWidget {
+class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Expanded(child: SizedBox()),
-            LoginForm(),
+            SignInForm(),
           ],
         ),
       ),
@@ -26,14 +26,14 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-class LoginForm extends StatefulWidget {
+class SignInForm extends StatefulWidget {
   @override
-  LoginFormState createState() {
-    return LoginFormState();
+  SignInFormState createState() {
+    return SignInFormState();
   }
 }
 
-class LoginFormState extends State<LoginForm> {
+class SignInFormState extends State<SignInForm> {
   final _formKey = GlobalKey<FormState>();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -83,8 +83,8 @@ class LoginFormState extends State<LoginForm> {
                   if (_formKey.currentState.validate()) {
                     String username = _usernameController.text;
                     String password = _passwordController.text;
-                    BlocProvider.of<AuthBloc>(context).add(AuthLogInRequest(
-                        username: username, password: password));
+                    BlocProvider.of<AuthBloc>(context).add(
+                        AuthSignIn(username: username, password: password));
                   }
                 },
                 child: Text('Submit'),
