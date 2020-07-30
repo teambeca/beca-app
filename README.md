@@ -11,4 +11,4 @@ BECA takımı ve Baazi uygulaması hakkında daha bilgi almak için, [tıklayın
 ## Başlangıç
 
 ## Lisans
-[Apache License 2.0](LICENSE)
+[MIT License](LICENSE)
