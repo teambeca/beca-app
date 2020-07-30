@@ -21,15 +21,17 @@ class _$AuthService extends AuthService {
     return client.send<BuiltAuth, BuiltAuth>($request);
   }
 
-  Future<Response> signUp(String username, String password) {
+  Future<Response<BuiltAuth>> signUp(BuiltSignUp body) {
     final $url = '/auth/sign-up';
-    final $request = Request('POST', $url, client.baseUrl);
-    return client.send<dynamic, dynamic>($request);
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<BuiltAuth, BuiltAuth>($request);
   }
 
-  Future<Response> signUpAnonymous() {
+  Future<Response<BuiltAuth>> signUpAnonymous(BuiltSignUpAnonymous body) {
     final $url = '/auth/sign-up/anonymous';
-    final $request = Request('GET', $url, client.baseUrl);
-    return client.send<dynamic, dynamic>($request);
+    final $body = body;
+    final $request = Request('GET', $url, client.baseUrl, body: $body);
+    return client.send<BuiltAuth, BuiltAuth>($request);
   }
 }

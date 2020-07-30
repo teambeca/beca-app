@@ -19,15 +19,15 @@ class _$BuiltAuthSerializer implements StructuredSerializer<BuiltAuth> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'access_token',
-      serializers.serialize(object.access_token,
+      serializers.serialize(object.accessToken,
           specifiedType: const FullType(String)),
       'role',
       serializers.serialize(object.role, specifiedType: const FullType(String)),
       'token_type',
-      serializers.serialize(object.token_type,
+      serializers.serialize(object.tokenType,
           specifiedType: const FullType(String)),
       'expires_in',
-      serializers.serialize(object.expires_in,
+      serializers.serialize(object.expiresIn,
           specifiedType: const FullType(int)),
     ];
 
@@ -46,7 +46,7 @@ class _$BuiltAuthSerializer implements StructuredSerializer<BuiltAuth> {
       final dynamic value = iterator.current;
       switch (key) {
         case 'access_token':
-          result.access_token = serializers.deserialize(value,
+          result.accessToken = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
         case 'role':
@@ -54,11 +54,11 @@ class _$BuiltAuthSerializer implements StructuredSerializer<BuiltAuth> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'token_type':
-          result.token_type = serializers.deserialize(value,
+          result.tokenType = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
         case 'expires_in':
-          result.expires_in = serializers.deserialize(value,
+          result.expiresIn = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
       }
@@ -70,31 +70,30 @@ class _$BuiltAuthSerializer implements StructuredSerializer<BuiltAuth> {
 
 class _$BuiltAuth extends BuiltAuth {
   @override
-  final String access_token;
+  final String accessToken;
   @override
   final String role;
   @override
-  final String token_type;
+  final String tokenType;
   @override
-  final int expires_in;
+  final int expiresIn;
 
   factory _$BuiltAuth([void Function(BuiltAuthBuilder) updates]) =>
       (new BuiltAuthBuilder()..update(updates)).build();
 
-  _$BuiltAuth._(
-      {this.access_token, this.role, this.token_type, this.expires_in})
+  _$BuiltAuth._({this.accessToken, this.role, this.tokenType, this.expiresIn})
       : super._() {
-    if (access_token == null) {
-      throw new BuiltValueNullFieldError('BuiltAuth', 'access_token');
+    if (accessToken == null) {
+      throw new BuiltValueNullFieldError('BuiltAuth', 'accessToken');
     }
     if (role == null) {
       throw new BuiltValueNullFieldError('BuiltAuth', 'role');
     }
-    if (token_type == null) {
-      throw new BuiltValueNullFieldError('BuiltAuth', 'token_type');
+    if (tokenType == null) {
+      throw new BuiltValueNullFieldError('BuiltAuth', 'tokenType');
     }
-    if (expires_in == null) {
-      throw new BuiltValueNullFieldError('BuiltAuth', 'expires_in');
+    if (expiresIn == null) {
+      throw new BuiltValueNullFieldError('BuiltAuth', 'expiresIn');
     }
   }
 
@@ -109,27 +108,27 @@ class _$BuiltAuth extends BuiltAuth {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is BuiltAuth &&
-        access_token == other.access_token &&
+        accessToken == other.accessToken &&
         role == other.role &&
-        token_type == other.token_type &&
-        expires_in == other.expires_in;
+        tokenType == other.tokenType &&
+        expiresIn == other.expiresIn;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, access_token.hashCode), role.hashCode),
-            token_type.hashCode),
-        expires_in.hashCode));
+        $jc($jc($jc(0, accessToken.hashCode), role.hashCode),
+            tokenType.hashCode),
+        expiresIn.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('BuiltAuth')
-          ..add('access_token', access_token)
+          ..add('accessToken', accessToken)
           ..add('role', role)
-          ..add('token_type', token_type)
-          ..add('expires_in', expires_in))
+          ..add('tokenType', tokenType)
+          ..add('expiresIn', expiresIn))
         .toString();
   }
 }
@@ -137,30 +136,30 @@ class _$BuiltAuth extends BuiltAuth {
 class BuiltAuthBuilder implements Builder<BuiltAuth, BuiltAuthBuilder> {
   _$BuiltAuth _$v;
 
-  String _access_token;
-  String get access_token => _$this._access_token;
-  set access_token(String access_token) => _$this._access_token = access_token;
+  String _accessToken;
+  String get accessToken => _$this._accessToken;
+  set accessToken(String accessToken) => _$this._accessToken = accessToken;
 
   String _role;
   String get role => _$this._role;
   set role(String role) => _$this._role = role;
 
-  String _token_type;
-  String get token_type => _$this._token_type;
-  set token_type(String token_type) => _$this._token_type = token_type;
+  String _tokenType;
+  String get tokenType => _$this._tokenType;
+  set tokenType(String tokenType) => _$this._tokenType = tokenType;
 
-  int _expires_in;
-  int get expires_in => _$this._expires_in;
-  set expires_in(int expires_in) => _$this._expires_in = expires_in;
+  int _expiresIn;
+  int get expiresIn => _$this._expiresIn;
+  set expiresIn(int expiresIn) => _$this._expiresIn = expiresIn;
 
   BuiltAuthBuilder();
 
   BuiltAuthBuilder get _$this {
     if (_$v != null) {
-      _access_token = _$v.access_token;
+      _accessToken = _$v.accessToken;
       _role = _$v.role;
-      _token_type = _$v.token_type;
-      _expires_in = _$v.expires_in;
+      _tokenType = _$v.tokenType;
+      _expiresIn = _$v.expiresIn;
       _$v = null;
     }
     return this;
@@ -183,14 +182,13 @@ class BuiltAuthBuilder implements Builder<BuiltAuth, BuiltAuthBuilder> {
   _$BuiltAuth build() {
     final _$result = _$v ??
         new _$BuiltAuth._(
-            access_token: access_token,
+            accessToken: accessToken,
             role: role,
-            token_type: token_type,
-            expires_in: expires_in);
+            tokenType: tokenType,
+            expiresIn: expiresIn);
     replace(_$result);
     return _$result;
   }
 }
 
 // ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
-// ignore_for_file: non_constant_identifier_names

@@ -7,7 +7,7 @@ class SplashPage extends StatelessWidget {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        padding: EdgeInsets.all(40),
+        padding: EdgeInsets.all(20),
         color: Theme.of(context).primaryColor,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

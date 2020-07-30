@@ -4,10 +4,13 @@ import 'package:built_value/serializer.dart';
 part 'built_auth.g.dart';
 
 abstract class BuiltAuth implements Built<BuiltAuth, BuiltAuthBuilder> {
-  String get access_token;
+  @BuiltValueField(wireName: 'access_token')
+  String get accessToken;
   String get role;
-  String get token_type;
-  int get expires_in;
+  @BuiltValueField(wireName: 'token_type')
+  String get tokenType;
+  @BuiltValueField(wireName: 'expires_in')
+  int get expiresIn;
 
   BuiltAuth._();
 

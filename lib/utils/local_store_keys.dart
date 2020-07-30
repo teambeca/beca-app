@@ -1,0 +1,4 @@
+enum LocalStoreKeys {
+  AuthToken,
+  AppTheme,
+}

@@ -6,20 +6,17 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
-        // backgroundColor: Theme.of(context).primaryColorLight,
-        title: Text("Sign In"),
+        title: Text("SIGN IN"),
       ),
-      body: Container(
-        width: double.infinity,
-        padding: EdgeInsets.all(40),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Expanded(child: SizedBox()),
-            SignInForm(),
-          ],
+      body: GestureDetector(
+        behavior: HitTestBehavior.translucent,
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: SignInForm(),
         ),
       ),
     );
@@ -42,56 +39,87 @@ class SignInFormState extends State<SignInForm> {
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextFormField(
-              controller: _usernameController,
-              validator: (value) {
-                if (value.isEmpty) return 'Please enter some text';
-                return null;
-              },
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Username',
+      child: NotificationListener<OverscrollIndicatorNotification>(
+        onNotification: (OverscrollIndicatorNotification overScroll) {
+          overScroll.disallowGlow();
+          return false;
+        },
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: _usernameController,
+                  validator: (value) {
+                    if (value.isEmpty) return 'Boş bırakmayınız';
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(4),
+                          bottomLeft: Radius.circular(0),
+                          bottomRight: Radius.circular(0),
+                          topRight: Radius.circular(4)),
+                    ),
+                    filled: true,
+                    hintText: 'Username',
+                  ),
+                ),
               ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextFormField(
-              controller: _passwordController,
-              validator: (value) {
-                if (value.isEmpty) return 'Please enter some text';
-                return null;
-              },
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Password',
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  obscureText: true,
+                  controller: _passwordController,
+                  validator: (value) {
+                    if (value.isEmpty) return 'Boş bırakmayınız';
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(4),
+                        bottomLeft: Radius.circular(0),
+                        bottomRight: Radius.circular(0),
+                        topRight: Radius.circular(4),
+                      ),
+                    ),
+                    filled: true,
+                    hintText: 'Password',
+                  ),
+                ),
               ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 16.0, left: 8.0, right: 8.0),
-            child: SizedBox(
-              width: double.infinity,
-              child: RaisedButton(
-                padding: EdgeInsets.symmetric(vertical: 20),
-                onPressed: () async {
-                  if (_formKey.currentState.validate()) {
-                    String username = _usernameController.text;
-                    String password = _passwordController.text;
-                    BlocProvider.of<AuthBloc>(context).add(
-                        AuthSignIn(username: username, password: password));
-                  }
-                },
-                child: Text('Submit'),
+              Padding(
+                padding:
+                    const EdgeInsets.only(top: 16.0, left: 8.0, right: 8.0),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: RaisedButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    color: Colors.white,
+                    padding: EdgeInsets.symmetric(vertical: 20),
+                    onPressed: () async {
+                      if (_formKey.currentState.validate()) {
+                        String username = _usernameController.text;
+                        String password = _passwordController.text;
+                        BlocProvider.of<AuthBloc>(context).add(
+                            AuthSignIn(username: username, password: password));
+                      }
+                    },
+                    child: Text('SIGN IN'),
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

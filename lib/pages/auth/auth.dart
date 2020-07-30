@@ -6,14 +6,11 @@ import 'package:flutter/material.dart';
 class AuthPagesStack extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async => !await homeExNavigatorKey.currentState.maybePop(),
-      child: Scaffold(
-        body: ExtendedNavigator(
-          key: tabbarExNavigatorKey,
-          router: AuthRouter(),
-          name: "auth",
-        ),
+    return Scaffold(
+      body: ExtendedNavigator(
+        key: homeExNavigatorKey,
+        router: AuthRouter(),
+        name: "auth",
       ),
     );
   }

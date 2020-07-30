@@ -4,9 +4,10 @@ class MyLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
+      // backgroundColor: Theme.of(context).primaryColorDark,
+      backgroundColor: Colors.white,
       radius: 50,
-      backgroundColor: Theme.of(context).primaryColorDark,
-      child: Text('Logo'),
+      child: Image(image: AssetImage("assets/logo.png")),
     );
   }
 }

@@ -9,6 +9,8 @@ abstract class AuthState extends Equatable {
 
 class AuthInitial extends AuthState {}
 
+class AuthInProgress extends AuthState {}
+
 class AuthSuccess extends AuthState {}
 
 class AuthFailure extends AuthState {
@@ -21,5 +23,3 @@ class AuthFailure extends AuthState {
   @override
   List<Object> get props => [message];
 }
-
-class AuthInProgress extends AuthState {}

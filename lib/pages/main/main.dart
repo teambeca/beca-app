@@ -1,88 +1,93 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:beca_app/main.dart';
-import 'package:beca_app/navigation/tabbar.gr.dart';
+import 'package:beca_app/pages/main/leader_board.dart';
+import 'package:beca_app/pages/main/play.dart';
+import 'package:beca_app/pages/main/profile.dart';
+import 'package:beca_app/pages/main/settings.dart';
 import 'package:flutter/material.dart';
 
-class MainPagesTabbar extends StatelessWidget {
+class MainPagesTabbar extends StatefulWidget {
+  MainPagesTabbar({Key key}) : super(key: key);
+
+  @override
+  _MainPagesTabbarState createState() => _MainPagesTabbarState();
+}
+
+class _MainPagesTabbarState extends State<MainPagesTabbar> {
+  List<Widget> originalList;
+  Map<int, bool> originalDic;
+  List<Widget> listScreens;
+  List<int> listScreensIndex;
+
+  int tabIndex = 0;
+  Color tabColor = Colors.white;
+  Color selectedTabColor = Colors.amber;
+
+  @override
+  void initState() {
+    super.initState();
+
+    originalList = [
+      LeaderBoardPage(),
+      PlayPage(),
+      ProfilePage(),
+      SettingsPage(),
+    ];
+    originalDic = {0: true, 1: false, 2: false, 3: false};
+    listScreens = [originalList.first];
+    listScreensIndex = [0];
+  }
+
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async => !await homeExNavigatorKey.currentState.maybePop(),
-      child: Scaffold(
-        body: ExtendedNavigator(
-          key: tabbarExNavigatorKey,
-          router: TabbarRouter(),
-          name: "tabbar",
-        ),
-        bottomNavigationBar: BottomNav(),
-      ),
+    return Scaffold(
+      body: IndexedStack(
+          index: listScreensIndex.indexOf(tabIndex), children: listScreens),
+      bottomNavigationBar: _buildBottomNavigationBar(context),
     );
   }
-}
 
-class BottomNav extends StatefulWidget {
-  @override
-  _BottomNavState createState() => _BottomNavState();
-}
+  void _selectedTab(int index) {
+    if (originalDic[index] == false) {
+      listScreensIndex.add(index);
+      originalDic[index] = true;
+      listScreensIndex.sort();
+      listScreens = listScreensIndex.map((index) {
+        return originalList[index];
+      }).toList();
+    }
 
-class _BottomNavState extends State<BottomNav> {
-  int _currentIndex = 0;
+    setState(() {
+      tabIndex = index;
+    });
+  }
 
-  @override
-  Widget build(BuildContext context) {
+  BottomNavigationBar _buildBottomNavigationBar(BuildContext context) {
     return BottomNavigationBar(
-      selectedItemColor: Colors.amber[800],
-      unselectedItemColor: Colors.black,
-      currentIndex: _currentIndex,
-      onTap: (int index) {
-        setState(() {
-          if (_currentIndex != index) {
-            _currentIndex = index;
-          } else {
-            tabbarExNavigatorKey.currentState
-                .popUntil((route) => route.isFirst);
-          }
-        });
-
-        ExtendedNavigator.named("tabbar")
-            .replace(TabbarRoutes.all.elementAt(index));
-      },
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: Theme.of(context).primaryColorDark,
+      selectedIconTheme: IconThemeData(color: Theme.of(context).accentColor),
+      unselectedIconTheme: IconThemeData(color: Colors.white),
+      selectedItemColor: Theme.of(context).accentColor,
+      unselectedItemColor: Colors.white,
+      currentIndex: tabIndex,
+      onTap: _selectedTab,
       items: [
-        for (final tabItem in TabNavigationItem.items)
-          BottomNavigationBarItem(
-            icon: tabItem.icon,
-            title: tabItem.title,
-          )
+        BottomNavigationBarItem(
+          icon: Icon(Icons.assistant_photo),
+          title: Text("Lider Tablosu"),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.play_arrow),
+          title: Text("Oyna"),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.account_circle),
+          title: Text("Profil"),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.settings),
+          title: Text("Ayarlar"),
+        ),
       ],
     );
   }
-}
-
-class TabNavigationItem {
-  final Widget title;
-  final Icon icon;
-
-  TabNavigationItem({
-    @required this.title,
-    @required this.icon,
-  });
-
-  static List<TabNavigationItem> get items => [
-        TabNavigationItem(
-          icon: Icon(Icons.home),
-          title: Text("LeaderBoard"),
-        ),
-        TabNavigationItem(
-          icon: Icon(Icons.play_arrow),
-          title: Text("Play"),
-        ),
-        TabNavigationItem(
-          icon: Icon(Icons.account_circle),
-          title: Text("Profile"),
-        ),
-        TabNavigationItem(
-          icon: Icon(Icons.settings),
-          title: Text("Settings"),
-        ),
-      ];
 }

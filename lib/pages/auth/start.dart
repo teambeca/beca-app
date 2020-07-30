@@ -11,8 +11,7 @@ class StartPage extends StatelessWidget {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        padding: EdgeInsets.all(40),
-        color: Theme.of(context).primaryColor,
+        padding: EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -23,8 +22,12 @@ class StartPage extends StatelessWidget {
                 width: double.infinity,
                 child: RaisedButton(
                   padding: EdgeInsets.symmetric(vertical: 20),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  color: Colors.white,
                   onPressed: () {
-                    ExtendedNavigator.root.replace(AuthRoutes.signInPage);
+                    ExtendedNavigator.root.push(AuthRoutes.signInPage);
                   },
                   child: Text("SIGN IN"),
                 ),
@@ -36,8 +39,12 @@ class StartPage extends StatelessWidget {
                 width: double.infinity,
                 child: RaisedButton(
                   padding: EdgeInsets.symmetric(vertical: 20),
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
                   onPressed: () {
-                    ExtendedNavigator.root.replace(AuthRoutes.signUpPage);
+                    ExtendedNavigator.root.push(AuthRoutes.signUpPage);
                   },
                   child: Text("SIGN UP"),
                 ),
@@ -59,11 +66,18 @@ class StartPage extends StatelessWidget {
                 width: double.infinity,
                 child: OutlineButton(
                   padding: EdgeInsets.symmetric(vertical: 20),
+                  borderSide: BorderSide(color: Colors.white, width: 2),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
                   onPressed: () {
-                    BlocProvider.of<AuthBloc>(context).add(
-                        AuthSignIn(username: "asdasd", password: "qweqwe"));
+                    BlocProvider.of<AuthBloc>(context)
+                        .add(AuthSignUpAnonymous());
                   },
-                  child: Text("CONTINUE ANONYMOUS"),
+                  child: Text(
+                    "CONTINUE ANONYMOUS",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
             ),
