@@ -10,9 +10,5 @@ BECA takımı ve Baazi uygulaması hakkında daha çok detay almak isterseniz, `
 
 ## Başlangıç
 
-Bu kaynak Baazi projesinin tüm kodlarını ve dökümanlarını içermektedir. Bunlar başlıca:
-
-- Flutter kullanarak yazılmış olan mobil uygulama.
-- Java dilinde Spring boot kullanarak yazılmış olan bir API.
-- Python dilinde yazılmış BeccaBot modeli.
-- Python dilinde yazılmış API, Database gibi bölümler için yazılmış küçük senaryolar.
+## Lisans
+[Apache License 2.0](LICENSE)
