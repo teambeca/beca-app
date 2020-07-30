@@ -1,20 +1,14 @@
-# beca_app
+# BECA Takımı
 
-A new Flutter project.
+BECA ekibi olarak amacımız, NLP projeleri için gerekli veri setlerini hem interaktif bir şekilde kullanıcılardan toplayan, hem de daha sonrasında doğal dil işleme ile bu verileri eşsiz hikayeler yazmak için kullanan, Baazi uygulamasını ülkemize kazandırmaktır.
 
-## Getting Started
+# Baazi
 
-This project is a starting point for a Flutter application.
+Doğal dil işleme bir yapay zeka alt dalıdır ve içinde bir çok dil işleme tekniği bulundurur. Baazi projesindeki asıl amaç, doğal dil işleme için proje geliştiricilerine zenginleştirilmiş veri seti olanağı sağlamaktır.
 
-A few resources to get you started if this is your first Flutter project:
+BECA takımı ve Baazi uygulaması hakkında daha bilgi almak için, [tıklayın](https://drive.google.com/drive/folders/1AaLwCFqb7YzworkOYEgerkHn7mFM6B6s?usp=sharing).
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Başlangıç
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
-###### Screen Records 
-
-![Screen Record 1](https://github.com/teambeca/beca-app/blob/master/public/beca_app_status_record_1.gif)
+## Lisans
+[MIT License](LICENSE)
