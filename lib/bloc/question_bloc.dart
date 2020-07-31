@@ -65,7 +65,8 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
             (b) {
               if (event.answer.isNotEmpty)
                 b..answer = ListBuilder(event.answer);
-              if (event.questionId.isNotEmpty) b..questionId = event.questionId;
+              if (event.questionId != null && event.questionId.isNotEmpty)
+                b..questionId = event.questionId;
               if (event.text.isNotEmpty) b..text = ListBuilder(event.text);
               b..type = event.type;
 

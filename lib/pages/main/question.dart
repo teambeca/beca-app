@@ -79,8 +79,9 @@ class _QuestionPageState extends State<QuestionPage> {
                     },
                   ),
                   AnswerSlider(
-                    onChange: (value) =>
-                        setState(() => _answer = [value.ceil()]),
+                    onChange: (value) => setState(() {
+                      return _answer = [value.ceil()];
+                    }),
                   ),
                   QuestionSkipButton(),
                   QuestionButton(answer: _answer),

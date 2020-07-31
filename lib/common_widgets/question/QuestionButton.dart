@@ -42,10 +42,12 @@ Function _onPressed(BuildContext context, QuestionState questionState,
   if (answer.length != 1 && answer.contains(-1)) return null;
 
   if (questionState is QuestionGetSuccess &&
-      snapshot.connectionState == ConnectionState.done)
+      snapshot.connectionState == ConnectionState.done) {
+    if (questionState.questionType == 3 && answer.length == 0) answer = [0];
     return () => _postAnswer(context, questionState, answer);
-  else
+  } else {
     return null;
+  }
 }
 
 void _postAnswer(
