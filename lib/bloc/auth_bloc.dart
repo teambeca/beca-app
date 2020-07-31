@@ -4,6 +4,7 @@ import 'package:beca_app/model/built_sign_in.dart';
 import 'package:beca_app/model/built_sign_up.dart';
 import 'package:beca_app/model/built_sign_up_anonymous.dart';
 import 'package:beca_app/service/auth_service.dart';
+import 'package:beca_app/utils/constants.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
@@ -24,8 +25,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   ) async* {
     // #region AuthStarted
     if (event is AuthStarted) {
-      // await Future.delayed(Duration(milliseconds: 800));
-
       final bool hasToken = await authService.hasToken();
 
       if (hasToken) {
@@ -65,7 +64,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         final response = await authService.signUp(
           BuiltSignUp(
             (b) => b
-              ..avatarTag = "admin"
+              ..avatarTag = DEFAULT_AVATAR_TAG
               ..username = event.username
               ..email = event.email
               ..password = event.password,
@@ -86,7 +85,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
       try {
         final response = await authService.signUpAnonymous(
-          BuiltSignUpAnonymous((b) => b..avatarTag = "admin"),
+          BuiltSignUpAnonymous((b) => b..avatarTag = DEFAULT_AVATAR_TAG),
         );
         await authService.persistToken(response.body.accessToken);
 
