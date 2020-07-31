@@ -62,7 +62,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       title: Text("Sesler"),
                       onChanged: (value) {
                         setState(() {
-                          hasAudio = value;
+                          // hasAudio = value;
                         });
                       },
                       value: hasAudio,
@@ -149,7 +149,8 @@ class _SettingsPageState extends State<SettingsPage> {
                           title: Text("Paylaş"),
                           onTap: () {
                             final RenderBox box = context.findRenderObject();
-                            Share.share("Selam, ben Baazi oynuyorum. Hadi sen de bana katıl!",
+                            Share.share(
+                                "Selam, ben Baazi oynuyorum. Hadi sen de bana katıl!",
                                 subject: "Baazi",
                                 sharePositionOrigin:
                                     box.localToGlobal(Offset.zero) & box.size);
