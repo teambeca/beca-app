@@ -80,7 +80,7 @@ class _QuestionPageState extends State<QuestionPage> {
                   ),
                   AnswerSlider(
                     onChange: (value) =>
-                        setState(() => _answer[0] = value.ceil()),
+                        setState(() => _answer = [value.ceil()]),
                   ),
                   QuestionSkipButton(),
                   QuestionButton(answer: _answer),

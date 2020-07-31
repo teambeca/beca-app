@@ -39,7 +39,7 @@ class QuestionButton extends StatelessWidget {
 
 Function _onPressed(BuildContext context, QuestionState questionState,
     List<int> answer, AsyncSnapshot snapshot) {
-  if (answer.contains(-1)) return null;
+  if (answer.length != 1 && answer.contains(-1)) return null;
 
   if (questionState is QuestionGetSuccess &&
       snapshot.connectionState == ConnectionState.done)
