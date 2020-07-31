@@ -16,6 +16,12 @@ Flutter'ın doğru kurulduğundan, gerekli IDE bağlantılarının gerçekleşti
 
 Flutter'ın kurulum aşamalarını bitirdikden sonra, projenin bulunduğu dosyaya terminal üzerinde gelmeniz gerekmekte. Bunun için ```cd``` komutunu kullanabilirsiniz. Ardından proje için gerekli kütüphaneleri indirebilmek için ```flutter pub get``` komutunu vermeniz gerekiyor. Bu konu ile ilgili daha detaylı bilgiye [buradan](https://flutter.dev/docs/development/packages-and-plugins/using-packages#updating-package-dependencies) ulaşabilirsiniz.
 
+Şimdi yapmanız gereken API URL'ni güncellemek. Bunun için ```/lib/utils/constants.dart``` dosyasının içerisinde bulunan ```BASE_URL``` değişkeninini güncellemeniz yeterli olucaktır.
+
+```
+final String BASE_URL = "API URL";
+```
+
 Bu işlemlerin ardından projeyi çalıştırabilmek için ```flutter run``` komutunu vermeniz yeterli olacaktır. Konu ile ilgili daha detaylı bilgiye [buradan](https://flutter.dev/docs/deployment/android) ulaşabilirsiniz.
 
 ## Lisans
