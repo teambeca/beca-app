@@ -62,6 +62,10 @@ class _QuestionAnswerPageState extends State<QuestionAnswerPage> {
 
   @override
   Widget build(BuildContext context) {
+    Size mediaSize = MediaQuery.of(context).size;
+    double widthStep = mediaSize.width / 10;
+    double heightStep = mediaSize.height / 10;
+
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: GestureDetector(
@@ -82,16 +86,13 @@ class _QuestionAnswerPageState extends State<QuestionAnswerPage> {
                     asd[0] = true;
                     _isVisibles = asd;
                   });
-                  await Future.delayed(Duration(microseconds: 2000))
-                      .then((value) => {
-                            Navigator.of(context).pop(),
-                          });
                   widget.onTap(0);
+                  Navigator.of(context).pop();
                 },
                 radius: 100,
                 text: "Özne",
-                left: 40,
-                top: 150,
+                left: widthStep * 2,
+                top: heightStep * 2.4,
                 borderColor: blobColors[0].borderColor,
                 insideColor: blobColors[0].insideColor,
               ),
@@ -103,16 +104,13 @@ class _QuestionAnswerPageState extends State<QuestionAnswerPage> {
                     asd[1] = true;
                     _isVisibles = asd;
                   });
-                  await Future.delayed(Duration(microseconds: 2000))
-                      .then((value) => {
-                            Navigator.of(context).pop(),
-                          });
                   widget.onTap(1);
+                  Navigator.of(context).pop();
                 },
                 radius: 150,
                 text: "Zarf Tümleci",
-                left: 200,
-                top: 110,
+                left: widthStep * 5,
+                top: heightStep * 1.5,
                 borderColor: blobColors[1].borderColor,
                 insideColor: blobColors[1].insideColor,
               ),
@@ -124,16 +122,13 @@ class _QuestionAnswerPageState extends State<QuestionAnswerPage> {
                     asd[2] = true;
                     _isVisibles = asd;
                   });
-                  await Future.delayed(Duration(microseconds: 2000))
-                      .then((value) => {
-                            Navigator.of(context).pop(),
-                          });
                   widget.onTap(2);
+                  Navigator.of(context).pop();
                 },
                 radius: 130,
                 text: "Belirtili Nesne",
-                left: 140,
-                top: 280,
+                left: widthStep * 3,
+                top: heightStep * 4,
                 borderColor: blobColors[2].borderColor,
                 insideColor: blobColors[2].insideColor,
               ),
@@ -145,16 +140,13 @@ class _QuestionAnswerPageState extends State<QuestionAnswerPage> {
                     asd[3] = true;
                     _isVisibles = asd;
                   });
-                  await Future.delayed(Duration(microseconds: 2000))
-                      .then((value) => {
-                            Navigator.of(context).pop(),
-                          });
                   widget.onTap(3);
+                  Navigator.of(context).pop();
                 },
                 radius: 120,
                 text: "Yüklem",
-                left: 40,
-                top: 410,
+                left: widthStep * 1,
+                top: heightStep * 6,
                 borderColor: blobColors[3].borderColor,
                 insideColor: blobColors[3].insideColor,
               ),
@@ -166,16 +158,13 @@ class _QuestionAnswerPageState extends State<QuestionAnswerPage> {
                     asd[4] = true;
                     _isVisibles = asd;
                   });
-                  await Future.delayed(Duration(microseconds: 2000))
-                      .then((value) => {
-                            Navigator.of(context).pop(),
-                          });
                   widget.onTap(4);
+                  Navigator.of(context).pop();
                 },
                 radius: 150,
                 text: "Belirtisiz Nesne",
-                left: 250,
-                top: 380,
+                left: widthStep * 6,
+                top: heightStep * 5.4,
                 borderColor: blobColors[4].borderColor,
                 insideColor: blobColors[4].insideColor,
               ),
@@ -187,16 +176,13 @@ class _QuestionAnswerPageState extends State<QuestionAnswerPage> {
                     asd[5] = true;
                     _isVisibles = asd;
                   });
-                  await Future.delayed(Duration(microseconds: 2000))
-                      .then((value) => {
-                            Navigator.of(context).pop(),
-                          });
                   widget.onTap(5);
+                  Navigator.of(context).pop();
                 },
                 radius: 125,
                 text: "Diğer",
-                left: 40,
-                top: 570,
+                left: widthStep * 1,
+                top: heightStep * 8,
                 borderColor: blobColors[5].borderColor,
                 insideColor: blobColors[5].insideColor,
               ),
@@ -208,16 +194,13 @@ class _QuestionAnswerPageState extends State<QuestionAnswerPage> {
                     asd[6] = true;
                     _isVisibles = asd;
                   });
-                  await Future.delayed(Duration(microseconds: 2000))
-                      .then((value) => {
-                            Navigator.of(context).pop(),
-                          });
                   widget.onTap(6);
+                  Navigator.of(context).pop();
                 },
                 radius: 110,
                 text: "Dolaylı Tümleç",
-                left: 210,
-                top: 530,
+                left: widthStep * 5,
+                top: heightStep * 7.5,
                 borderColor: blobColors[6].borderColor,
                 insideColor: blobColors[6].insideColor,
               ),
