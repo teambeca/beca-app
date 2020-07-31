@@ -23,6 +23,13 @@ final Color purplePrimaryColor = Color.fromARGB(255, 156, 39, 176);
 final Color purplePrimaryColorDark = Color.fromARGB(255, 106, 0, 128);
 final Color purplePrimaryColorLight = Color.fromARGB(255, 208, 92, 227);
 
+final appThemeNameMap = {
+  "AppTheme.Blue": "Mavi",
+  "AppTheme.Green": "Yeşil",
+  "AppTheme.Orange": "Turuncu",
+  "AppTheme.Purple": "Mor"
+};
+
 final appThemeData = {
   AppTheme.Blue: ThemeData(
     brightness: Brightness.light,

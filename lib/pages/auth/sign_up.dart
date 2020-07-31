@@ -7,7 +7,7 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("SIGN UP"),
+        title: Text("KAYDOL"),
       ),
       body: GestureDetector(
         behavior: HitTestBehavior.translucent,
@@ -119,7 +119,7 @@ class SignUpFormState extends State<SignUpForm> {
                         ),
                       ),
                       filled: true,
-                      hintText: 'Password',
+                      hintText: 'Şifre',
                     ),
                   ),
                 ),
@@ -132,7 +132,7 @@ class SignUpFormState extends State<SignUpForm> {
                       if (value.isEmpty) return 'Boş bırakmayınız';
                       String password = _passwordController.text;
                       if (value.compareTo(password) != 0)
-                        return 'Please enter same password';
+                        return 'Lütfen aynı şifreyi girin';
                       return null;
                     },
                     decoration: InputDecoration(
@@ -146,7 +146,7 @@ class SignUpFormState extends State<SignUpForm> {
                         ),
                       ),
                       filled: true,
-                      hintText: 'Re-Password',
+                      hintText: 'Şifre tekrar',
                     ),
                   ),
                 ),
@@ -203,7 +203,7 @@ class SignUpFormState extends State<SignUpForm> {
                               }
                             }
                           : null,
-                      child: Text('SIGN UP'),
+                      child: Text('KAYDOL'),
                     ),
                   ),
                 ),

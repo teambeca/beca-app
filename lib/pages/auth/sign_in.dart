@@ -7,7 +7,7 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("SIGN IN"),
+        title: Text("GİRİŞ YAP"),
       ),
       body: GestureDetector(
         behavior: HitTestBehavior.translucent,
@@ -66,7 +66,7 @@ class SignInFormState extends State<SignInForm> {
                           topRight: Radius.circular(4)),
                     ),
                     filled: true,
-                    hintText: 'Username',
+                    hintText: 'Kullanıcı adı',
                   ),
                 ),
               ),
@@ -90,7 +90,7 @@ class SignInFormState extends State<SignInForm> {
                       ),
                     ),
                     filled: true,
-                    hintText: 'Password',
+                    hintText: 'Şifre',
                   ),
                 ),
               ),
@@ -113,7 +113,7 @@ class SignInFormState extends State<SignInForm> {
                             AuthSignIn(username: username, password: password));
                       }
                     },
-                    child: Text('SIGN IN'),
+                    child: Text('GİRİŞ YAP'),
                   ),
                 ),
               ),

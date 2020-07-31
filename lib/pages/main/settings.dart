@@ -49,7 +49,7 @@ class _SettingsPageState extends State<SettingsPage> {
                               BlocProvider.of<ThemeBloc>(context)
                                   .add(ThemeChanged(themeMain: e));
                             },
-                            title: Text(e.toString().split(".")[1]),
+                            title: Text(appThemeNameMap[e.toString()]), //e.toString().split(".")[1]
                           ),
                         ),
                       ],

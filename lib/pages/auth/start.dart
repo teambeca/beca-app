@@ -29,7 +29,7 @@ class StartPage extends StatelessWidget {
                   onPressed: () {
                     ExtendedNavigator.root.push(AuthRoutes.signInPage);
                   },
-                  child: Text("SIGN IN"),
+                  child: Text("GİRİŞ YAP"),
                 ),
               ),
             ),
@@ -46,14 +46,14 @@ class StartPage extends StatelessWidget {
                   onPressed: () {
                     ExtendedNavigator.root.push(AuthRoutes.signUpPage);
                   },
-                  child: Text("SIGN UP"),
+                  child: Text("KAYDOL"),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                'OR',
+                'VEYA',
                 style: Theme.of(context)
                     .textTheme
                     .bodyText1
@@ -75,7 +75,7 @@ class StartPage extends StatelessWidget {
                         .add(AuthSignUpAnonymous());
                   },
                   child: Text(
-                    "CONTINUE ANONYMOUS",
+                    "ANONİM DEVAM ET",
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
