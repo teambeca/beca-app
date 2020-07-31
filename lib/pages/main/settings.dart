@@ -6,6 +6,7 @@ import 'package:beca_app/pages/main/how_to_use.dart';
 import 'package:beca_app/utils/app_themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -49,7 +50,7 @@ class _SettingsPageState extends State<SettingsPage> {
                               BlocProvider.of<ThemeBloc>(context)
                                   .add(ThemeChanged(themeMain: e));
                             },
-                            title: Text(appThemeNameMap[e.toString()]), //e.toString().split(".")[1]
+                            title: Text(appThemeNameMap[e.toString()]),
                           ),
                         ),
                       ],
@@ -90,7 +91,9 @@ class _SettingsPageState extends State<SettingsPage> {
                         ),
                         ListTile(
                           title: Text("Veri Setine Ulaş"),
-                          onTap: () {},
+                          onTap: () {
+                            _launchURL();
+                          },
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -166,6 +169,15 @@ class _SettingsPageState extends State<SettingsPage> {
         ),
       ),
     );
+  }
+}
+
+_launchURL() async {
+  const url = "https://github.com/teambeca";
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    //TODO: Error
   }
 }
 
