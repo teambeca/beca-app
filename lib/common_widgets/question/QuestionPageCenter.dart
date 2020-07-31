@@ -99,7 +99,6 @@ class _Question0CenterState extends State<Question0Center> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     this.answers = new Map();
   }
