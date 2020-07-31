@@ -46,20 +46,6 @@ class AvatarSelectPage extends StatelessWidget {
               Navigator.of(context).pop();
             } else {}
           },
-          imageUri: "assets/avatars/admin.png",
-        ),
-      ),
-      Center(
-        child: MyAvatar(
-          onTap: (imageUri) {
-            AccountState accountState = context.bloc<AccountBloc>().state;
-            if (accountState is AccountSuccess) {
-              context.bloc<AccountBloc>().add(AccountPatch(
-                    avatarTag: imageUri.substring(15).split(".")[0],
-                  ));
-              Navigator.of(context).pop();
-            } else {}
-          },
           imageUri: "assets/avatars/woman.png",
         ),
       ),

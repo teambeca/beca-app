@@ -5,6 +5,7 @@ import 'package:beca_app/model/built_sign_in.dart';
 import 'package:beca_app/model/built_sign_up.dart';
 import 'package:beca_app/model/built_sign_up_anonymous.dart';
 import 'package:beca_app/model/built_value_converter.dart';
+import 'package:beca_app/utils/constants.dart';
 import 'package:beca_app/utils/local_store_keys.dart';
 import 'package:chopper/chopper.dart';
 import 'package:meta/meta.dart';
@@ -16,7 +17,7 @@ part 'auth_service.chopper.dart';
 abstract class AuthService extends ChopperService {
   static AuthService create() {
     final client = ChopperClient(
-        baseUrl: "https://beca-api.herokuapp.com",
+        baseUrl: BASE_URL,
         services: [
           _$AuthService(),
         ],
