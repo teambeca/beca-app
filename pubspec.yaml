@@ -18,6 +18,12 @@ dependencies:
   shared_preferences: ^0.5.8
   url_launcher: ^5.5.0
   share: ^0.6.4+3
+  flutter_launcher_icons: ^0.7.5
+
+flutter_icons:
+  image_path: "assets/icon.png"
+  ios: true
+  android: true
 
 dev_dependencies:
   build_runner:
