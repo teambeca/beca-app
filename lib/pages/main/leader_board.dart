@@ -2,6 +2,7 @@ import 'package:beca_app/bloc/account_bloc.dart';
 import 'package:beca_app/bloc/auth_bloc.dart';
 import 'package:beca_app/bloc/leaderboard_bloc.dart';
 import 'package:beca_app/common_widgets/MyAvatar.dart';
+import 'package:beca_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -77,7 +78,7 @@ class LeaderBoardPage extends StatelessWidget {
                                     imageUri: accountState.account.avatarTag !=
                                             null
                                         ? "assets/avatars/${accountState.account.avatarTag}.png"
-                                        : "assets/avatars/admin.png",
+                                        : "assets/avatars/$DEFAULT_AVATAR_TAG.png",
                                   ),
                                   SizedBox(height: 8.0),
                                   Text(
@@ -277,7 +278,7 @@ class LeaderBoardPage extends StatelessWidget {
                                                         .avatarTag !=
                                                     null
                                                 ? "assets/avatars/${leaderboardState.users[index].avatarTag}.png"
-                                                : "assets/avatars/admin.png"),
+                                                : "assets/avatars/$DEFAULT_AVATAR_TAG.png"),
                                       ],
                                     ),
                                   ),

@@ -5,6 +5,7 @@ import 'package:beca_app/bloc/profile_bloc.dart';
 import 'package:beca_app/common_widgets/MyAvatar.dart';
 import 'package:beca_app/model/built_location.dart';
 import 'package:beca_app/pages/main/avatar_select.dart';
+import 'package:beca_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:built_collection/built_collection.dart';
@@ -242,7 +243,7 @@ class _ProfileLoadedState extends State<ProfileLoaded> {
                       return new MyAvatar(
                         imageUri: accountState.account.avatarTag != null
                             ? "assets/avatars/${accountState.account.avatarTag}.png"
-                            : "assets/avatars/superhero.png",
+                            : "assets/avatars/$DEFAULT_AVATAR_TAG.png",
                         onTap: (imageUri) {
                           Navigator.of(context).push(
                             MaterialPageRoute(
@@ -254,7 +255,7 @@ class _ProfileLoadedState extends State<ProfileLoaded> {
                       );
                     else
                       return new MyAvatar(
-                        imageUri: "assets/avatars/queen.png",
+                        imageUri: "assets/avatars/$DEFAULT_AVATAR_TAG.png",
                         onTap: (imageUri) {
                           Navigator.of(context).push(
                             MaterialPageRoute(
