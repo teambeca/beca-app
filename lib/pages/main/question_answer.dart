@@ -1,6 +1,50 @@
 import 'package:flutter/material.dart';
 
+typedef void QuestionAnswerPageOnTap(int selectedValue);
+
+class BlobColor {
+  Color borderColor;
+  Color insideColor;
+
+  BlobColor(this.borderColor, this.insideColor);
+}
+
+List<BlobColor> blobColors = [
+  BlobColor(
+    Color.fromARGB(255, 41, 67, 78),
+    Color.fromARGB(255, 84, 110, 122),
+  ),
+  BlobColor(
+    Color.fromARGB(255, 255, 112, 67),
+    Color.fromARGB(255, 255, 162, 112),
+  ),
+  BlobColor(
+    Color.fromARGB(255, 0, 150, 136),
+    Color.fromARGB(255, 82, 199, 184),
+  ),
+  BlobColor(
+    Color.fromARGB(255, 33, 150, 243),
+    Color.fromARGB(255, 77, 171, 245),
+  ),
+  BlobColor(
+    Color.fromARGB(255, 176, 0, 58),
+    Color.fromARGB(255, 233, 30, 99),
+  ),
+  BlobColor(
+    Color.fromARGB(255, 0, 103, 91),
+    Color.fromARGB(255, 0, 150, 136),
+  ),
+  BlobColor(
+    Color.fromARGB(255, 198, 63, 23),
+    Color.fromARGB(255, 255, 112, 67),
+  ),
+];
+
 class QuestionAnswerPage extends StatefulWidget {
+  final QuestionAnswerPageOnTap onTap;
+
+  QuestionAnswerPage({this.onTap});
+
   @override
   _QuestionAnswerPageState createState() => _QuestionAnswerPageState();
 }
@@ -42,13 +86,14 @@ class _QuestionAnswerPageState extends State<QuestionAnswerPage> {
                       .then((value) => {
                             Navigator.of(context).pop(),
                           });
+                  widget.onTap(0);
                 },
                 radius: 100,
                 text: "Özne",
-                left: 50,
-                top: 50,
-                borderColor: Color.fromARGB(255, 41, 67, 78),
-                insideColor: Color.fromARGB(255, 84, 110, 122),
+                left: 40,
+                top: 150,
+                borderColor: blobColors[0].borderColor,
+                insideColor: blobColors[0].insideColor,
               ),
               BlobAnswer(
                 isVisible: _isVisibles[1],
@@ -62,13 +107,14 @@ class _QuestionAnswerPageState extends State<QuestionAnswerPage> {
                       .then((value) => {
                             Navigator.of(context).pop(),
                           });
+                  widget.onTap(1);
                 },
-                radius: 100,
+                radius: 150,
                 text: "Zarf Tümleci",
-                left: 150,
-                top: 150,
-                borderColor: Color.fromARGB(255, 255, 112, 67),
-                insideColor: Color.fromARGB(255, 255, 162, 112),
+                left: 200,
+                top: 110,
+                borderColor: blobColors[1].borderColor,
+                insideColor: blobColors[1].insideColor,
               ),
               BlobAnswer(
                 isVisible: _isVisibles[2],
@@ -82,13 +128,14 @@ class _QuestionAnswerPageState extends State<QuestionAnswerPage> {
                       .then((value) => {
                             Navigator.of(context).pop(),
                           });
+                  widget.onTap(2);
                 },
-                radius: 100,
+                radius: 130,
                 text: "Belirtili Nesne",
-                left: 150,
-                top: 50,
-                borderColor: Color.fromARGB(255, 0, 150, 136),
-                insideColor: Color.fromARGB(255, 82, 199, 184),
+                left: 140,
+                top: 280,
+                borderColor: blobColors[2].borderColor,
+                insideColor: blobColors[2].insideColor,
               ),
               BlobAnswer(
                 isVisible: _isVisibles[3],
@@ -102,13 +149,14 @@ class _QuestionAnswerPageState extends State<QuestionAnswerPage> {
                       .then((value) => {
                             Navigator.of(context).pop(),
                           });
+                  widget.onTap(3);
                 },
-                radius: 100,
+                radius: 120,
                 text: "Yüklem",
-                left: 250,
-                top: 250,
-                borderColor: Color.fromARGB(255, 33, 150, 243),
-                insideColor: Color.fromARGB(255, 77, 171, 245),
+                left: 40,
+                top: 410,
+                borderColor: blobColors[3].borderColor,
+                insideColor: blobColors[3].insideColor,
               ),
               BlobAnswer(
                 isVisible: _isVisibles[4],
@@ -122,13 +170,14 @@ class _QuestionAnswerPageState extends State<QuestionAnswerPage> {
                       .then((value) => {
                             Navigator.of(context).pop(),
                           });
+                  widget.onTap(4);
                 },
-                radius: 100,
+                radius: 150,
                 text: "Belirtisiz Nesne",
                 left: 250,
-                top: 200,
-                borderColor: Color.fromARGB(255, 176, 0, 58),
-                insideColor: Color.fromARGB(255, 233, 30, 99),
+                top: 380,
+                borderColor: blobColors[4].borderColor,
+                insideColor: blobColors[4].insideColor,
               ),
               BlobAnswer(
                 isVisible: _isVisibles[5],
@@ -142,13 +191,14 @@ class _QuestionAnswerPageState extends State<QuestionAnswerPage> {
                       .then((value) => {
                             Navigator.of(context).pop(),
                           });
+                  widget.onTap(5);
                 },
-                radius: 100,
+                radius: 125,
                 text: "Diğer",
-                left: 200,
-                top: 250,
-                borderColor: Color.fromARGB(255, 0, 103, 91),
-                insideColor: Color.fromARGB(255, 0, 150, 136),
+                left: 40,
+                top: 570,
+                borderColor: blobColors[5].borderColor,
+                insideColor: blobColors[5].insideColor,
               ),
               BlobAnswer(
                 isVisible: _isVisibles[6],
@@ -162,13 +212,14 @@ class _QuestionAnswerPageState extends State<QuestionAnswerPage> {
                       .then((value) => {
                             Navigator.of(context).pop(),
                           });
+                  widget.onTap(6);
                 },
-                radius: 100,
+                radius: 110,
                 text: "Dolaylı Tümleç",
-                left: 350,
-                top: 300,
-                borderColor: Color.fromARGB(255, 198, 63, 23),
-                insideColor: Color.fromARGB(255, 255, 112, 67),
+                left: 210,
+                top: 530,
+                borderColor: blobColors[6].borderColor,
+                insideColor: blobColors[6].insideColor,
               ),
             ],
           ),

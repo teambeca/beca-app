@@ -3,9 +3,14 @@ import 'package:beca_app/pages/main/question_answer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+typedef void QuestionPageCenterOnChange(List<int> answers);
+
 class QuestionPageCenter extends StatelessWidget {
+  final QuestionPageCenterOnChange onChange;
+
   const QuestionPageCenter({
     Key key,
+    this.onChange,
   }) : super(key: key);
 
   @override
@@ -14,23 +19,8 @@ class QuestionPageCenter extends StatelessWidget {
       builder: (context, questionState) {
         if (questionState is QuestionGetSuccess) {
           if (questionState.questionType == 0)
-            return Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Wrap(
-                    children: <Widget>[
-                      ...questionState.question.text.map(
-                        (val) => SelectableText(
-                          text: val,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            );
+            return new Question0Center(
+                questionState: questionState, onChange: this.onChange);
 
           String _wordSeperator;
           TextStyle _textStyle;
@@ -82,36 +72,105 @@ class QuestionPageCenter extends StatelessWidget {
   }
 }
 
-//TODO: SelectableText Question Type 0 Answers
-class SelectableText extends StatelessWidget {
-  const SelectableText({
+class Question0Center extends StatefulWidget {
+  final QuestionGetSuccess questionState;
+  final QuestionPageCenterOnChange onChange;
+
+  const Question0Center({
     Key key,
-    this.text,
+    this.questionState,
+    this.onChange,
   }) : super(key: key);
 
-  final String text;
+  @override
+  _Question0CenterState createState() => _Question0CenterState();
+}
+
+class _Question0CenterState extends State<Question0Center> {
+  bool isSelected = false;
+  int selectedWordIndex;
+  Map<String, int> answers;
+
+  _Question0CenterState({
+    this.isSelected = false,
+    this.selectedWordIndex,
+    this.answers,
+  });
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    this.answers = new Map();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.zero,
-      ),
-      onPressed: () {
-        Navigator.of(context).push(
-          PageRouteBuilder(
-            opaque: false,
-            pageBuilder: (_, __, ___) => QuestionAnswerPage(),
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: Align(
+          alignment: Alignment.center,
+          child: Wrap(
+            children: <Widget>[
+              ...this.widget.questionState.question.text.map(
+                    (wordValue) => FlatButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.zero,
+                      ),
+                      color: answers[wordValue] != null
+                          ? blobColors[answers[wordValue]].insideColor
+                          : Colors.indigo,
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          PageRouteBuilder(
+                            opaque: false,
+                            pageBuilder: (_, __, ___) => QuestionAnswerPage(
+                              onTap: (selectedValue) {
+                                if (answers[wordValue] != null) {
+                                  answers[wordValue] = selectedValue;
+                                } else {
+                                  answers.putIfAbsent(
+                                      wordValue, () => selectedValue);
+                                }
+
+                                setState(() {});
+
+                                this.widget.onChange(
+                                      List.generate(
+                                        this
+                                            .widget
+                                            .questionState
+                                            .question
+                                            .text
+                                            .length,
+                                        (index) =>
+                                            answers[this
+                                                .widget
+                                                .questionState
+                                                .question
+                                                .text[index]] ??
+                                            -1,
+                                      ),
+                                    );
+                              },
+                            ),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        wordValue,
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context)
+                            .textTheme
+                            .button
+                            .copyWith(color: Colors.white),
+                      ),
+                    ),
+                  )
+            ],
           ),
-          //           TransparentRoute(
-          //   builder: (_) => QuestionAnswerPage(),
-          // ),
-        );
-      },
-      child: Text(
-        this.text,
-        textAlign: TextAlign.center,
-        style: Theme.of(context).textTheme.button.copyWith(color: Colors.white),
+        ),
       ),
     );
   }

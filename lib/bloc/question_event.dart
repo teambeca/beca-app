@@ -18,7 +18,16 @@ class QuestionTypeChange extends QuestionEvent {
   List<Object> get props => [type];
 }
 
-class QuestionGet extends QuestionEvent {}
+class QuestionGet extends QuestionEvent {
+  final bool isRandom;
+
+  const QuestionGet({
+    this.isRandom = false,
+  });
+
+  @override
+  List<Object> get props => [isRandom];
+}
 
 class QuestionAnswerPost extends QuestionEvent {
   final String questionId;

@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 class QuestionButton extends StatelessWidget {
   const QuestionButton({
     Key key,
-    @required double answer,
+    @required List<int> answer,
   })  : _answer = answer,
         super(key: key);
 
-  final double _answer;
+  final List<int> _answer;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class QuestionButton extends StatelessWidget {
 }
 
 Function _onPressed(BuildContext context, QuestionState questionState,
-    double answer, AsyncSnapshot snapshot) {
+    List<int> answer, AsyncSnapshot snapshot) {
   if (questionState is QuestionGetSuccess &&
       snapshot.connectionState == ConnectionState.done)
     return () => _postAnswer(context, questionState, answer);
@@ -47,10 +47,10 @@ Function _onPressed(BuildContext context, QuestionState questionState,
 }
 
 void _postAnswer(
-    BuildContext context, QuestionGetSuccess questionState, double answer) {
+    BuildContext context, QuestionGetSuccess questionState, List<int> answer) {
   context.bloc<QuestionBloc>().add(
         QuestionAnswerPost(
-          answer: [answer.ceil()],
+          answer: answer,
           questionId: questionState.question.id,
           text: questionState.question.text,
           type: questionState.question.type,

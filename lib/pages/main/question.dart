@@ -17,7 +17,7 @@ class QuestionPage extends StatefulWidget {
 }
 
 class _QuestionPageState extends State<QuestionPage> {
-  double _answer = 0.0;
+  List<int> _answer = [];
 
   @override
   void initState() {
@@ -71,9 +71,16 @@ class _QuestionPageState extends State<QuestionPage> {
                 children: <Widget>[
                   QuestionInfoAppBar(),
                   QuestionReportBar(),
-                  QuestionPageCenter(),
+                  QuestionPageCenter(
+                    onChange: (answers) {
+                      setState(() {
+                        _answer = answers;
+                      });
+                    },
+                  ),
                   AnswerSlider(
-                    onChange: (value) => setState(() => _answer = value),
+                    onChange: (value) =>
+                        setState(() => _answer[0] = value.ceil()),
                   ),
                   QuestionSkipButton(),
                   QuestionButton(answer: _answer),
