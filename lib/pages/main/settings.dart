@@ -149,8 +149,8 @@ class _SettingsPageState extends State<SettingsPage> {
                           title: Text("Paylaş"),
                           onTap: () {
                             final RenderBox box = context.findRenderObject();
-                            Share.share("test text", //TODO: The text will change
-                                subject: "Baazi", //TODO: subject will change
+                            Share.share("Selam, ben Baazi oynuyorum. Hadi sen de bana katıl!",
+                                subject: "Baazi",
                                 sharePositionOrigin:
                                     box.localToGlobal(Offset.zero) & box.size);
                           },
