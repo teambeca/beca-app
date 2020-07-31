@@ -6,6 +6,7 @@ import 'package:beca_app/pages/main/how_to_use.dart';
 import 'package:beca_app/utils/app_themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -146,7 +147,13 @@ class _SettingsPageState extends State<SettingsPage> {
                         ),
                         ListTile(
                           title: Text("Paylaş"),
-                          onTap: () {},
+                          onTap: () {
+                            final RenderBox box = context.findRenderObject();
+                            Share.share("test text", //TODO: The text will change
+                                subject: "Baazi", //TODO: subject will change
+                                sharePositionOrigin:
+                                    box.localToGlobal(Offset.zero) & box.size);
+                          },
                         ),
                       ],
                     ),
