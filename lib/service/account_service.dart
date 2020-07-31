@@ -1,5 +1,6 @@
 import 'package:beca_app/model/built_account.dart';
 import 'package:beca_app/model/built_value_converter.dart';
+import 'package:beca_app/utils/constants.dart';
 import 'package:chopper/chopper.dart';
 
 part 'account_service.chopper.dart';
@@ -8,7 +9,7 @@ part 'account_service.chopper.dart';
 abstract class AccountService extends ChopperService {
   static AccountService create() {
     final client = ChopperClient(
-        baseUrl: "https://beca-api.herokuapp.com",
+        baseUrl: BASE_URL,
         services: [
           _$AccountService(),
         ],

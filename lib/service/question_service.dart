@@ -2,6 +2,7 @@ import 'package:beca_app/model/built_answer.dart';
 import 'package:beca_app/model/built_question.dart';
 import 'package:beca_app/model/built_question_answer.dart';
 import 'package:beca_app/model/built_value_converter.dart';
+import 'package:beca_app/utils/constants.dart';
 import 'package:chopper/chopper.dart';
 
 part 'question_service.chopper.dart';
@@ -10,7 +11,7 @@ part 'question_service.chopper.dart';
 abstract class QuestionService extends ChopperService {
   static QuestionService create() {
     final client = ChopperClient(
-        baseUrl: "https://beca-api.herokuapp.com",
+        baseUrl: BASE_URL,
         services: [
           _$QuestionService(),
         ],
