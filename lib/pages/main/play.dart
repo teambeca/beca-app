@@ -16,91 +16,91 @@ class PlayPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
           children: <Widget>[
-            Flexible(
-              flex: 1,
-              fit: FlexFit.tight,
-              child: Container(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      color: Colors.white,
-                      padding: EdgeInsets.symmetric(vertical: 20),
-                      onPressed: () {
-                        BlocProvider.of<ThemeBloc>(context)
-                            .add(ThemeChanged(themeQuestion: AppTheme.Orange));
-                        BlocProvider.of<QuestionBloc>(context)
-                            .add(QuestionTypeChange(type: -1));
+            // Flexible(
+            //   flex: 1,
+            //   fit: FlexFit.tight,
+            //   child: Container(
+            //     child: Padding(
+            //       padding: const EdgeInsets.symmetric(vertical: 10.0),
+            //       child: SizedBox(
+            //         width: double.infinity,
+            //         child: RaisedButton(
+            //           shape: RoundedRectangleBorder(
+            //             borderRadius: BorderRadius.circular(10.0),
+            //           ),
+            //           color: Colors.white,
+            //           padding: EdgeInsets.symmetric(vertical: 20),
+            //           onPressed: () {
+            //             BlocProvider.of<ThemeBloc>(context)
+            //                 .add(ThemeChanged(themeQuestion: AppTheme.Orange));
+            //             BlocProvider.of<QuestionBloc>(context)
+            //                 .add(QuestionTypeChange(type: -1));
 
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            fullscreenDialog: true,
-                            builder: (context) => QuestionPage(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        'RASTGELE OYUN',
-                        style: Theme.of(context)
-                            .textTheme
-                            .button
-                            .copyWith(color: Colors.black),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Text(
-              'VEYA',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText1
-                  .copyWith(color: Colors.white),
-            ),
-            Flexible(
-              flex: 1,
-              fit: FlexFit.tight,
-              child: Container(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      color: appThemeData[AppTheme.Purple].primaryColorDark,
-                      padding: EdgeInsets.symmetric(vertical: 20),
-                      onPressed: () {
-                        BlocProvider.of<ThemeBloc>(context)
-                            .add(ThemeChanged(themeQuestion: AppTheme.Purple));
-                        BlocProvider.of<QuestionBloc>(context)
-                            .add(QuestionTypeChange(type: 0));
+            //             Navigator.of(context).push(
+            //               MaterialPageRoute(
+            //                 fullscreenDialog: true,
+            //                 builder: (context) => QuestionPage(),
+            //               ),
+            //             );
+            //           },
+            //           child: Text(
+            //             'RASTGELE OYUN',
+            //             style: Theme.of(context)
+            //                 .textTheme
+            //                 .button
+            //                 .copyWith(color: Colors.black),
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
+            // Text(
+            //   'VEYA',
+            //   style: Theme.of(context)
+            //       .textTheme
+            //       .bodyText1
+            //       .copyWith(color: Colors.white),
+            // ),
+            // Flexible(
+            //   flex: 1,
+            //   fit: FlexFit.tight,
+            //   child: Container(
+            //     child: Padding(
+            //       padding: const EdgeInsets.symmetric(vertical: 10.0),
+            //       child: SizedBox(
+            //         width: double.infinity,
+            //         child: RaisedButton(
+            //           shape: RoundedRectangleBorder(
+            //             borderRadius: BorderRadius.circular(10.0),
+            //           ),
+            //           color: appThemeData[AppTheme.Purple].primaryColorDark,
+            //           padding: EdgeInsets.symmetric(vertical: 20),
+            //           onPressed: () {
+            //             BlocProvider.of<ThemeBloc>(context)
+            //                 .add(ThemeChanged(themeQuestion: AppTheme.Purple));
+            //             BlocProvider.of<QuestionBloc>(context)
+            //                 .add(QuestionTypeChange(type: 0));
 
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            fullscreenDialog: true,
-                            builder: (context) => QuestionPage(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        'CÜMLENİN ÖGELERİ',
-                        style: Theme.of(context)
-                            .textTheme
-                            .button
-                            .copyWith(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            //             Navigator.of(context).push(
+            //               MaterialPageRoute(
+            //                 fullscreenDialog: true,
+            //                 builder: (context) => QuestionPage(),
+            //               ),
+            //             );
+            //           },
+            //           child: Text(
+            //             'CÜMLENİN ÖGELERİ',
+            //             style: Theme.of(context)
+            //                 .textTheme
+            //                 .button
+            //                 .copyWith(color: Colors.white),
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
             Flexible(
               flex: 1,
               fit: FlexFit.tight,
