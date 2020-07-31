@@ -10,5 +10,13 @@ BECA takımı ve Baazi uygulaması hakkında daha bilgi almak için, [tıklayın
 
 ## Başlangıç
 
+Projeyi ```build``` edebilmeniz için öncelikle sisteminize Flutter SDK'in kurulu olması gerekmektedir. Kurulum aşamalarını [buradan](https://flutter.dev/docs/get-started/install) takip edebilirsiniz.
+
+Flutter'ın doğru kurulduğundan, gerekli IDE bağlantılarının gerçekleştirildiğinden ve gerekli lisansların imzalandığından emin olmak için ```flutter doctor``` komutunu verebilirsiniz.
+
+Flutter'ın kurulum aşamalarını bitirdikden sonra, projenin bulunduğu dosyaya terminal üzerinde gelmeniz gerekmekte. Bunun için ```cd``` komutunu kullanabilirsiniz. Ardından proje için gerekli kütüphaneleri indirebilmek için ```flutter pub get``` komutunu vermeniz gerekiyor. Bu konu ile ilgili daha detaylı bilgiye [buradan](https://flutter.dev/docs/development/packages-and-plugins/using-packages#updating-package-dependencies) ulaşabilirsiniz.
+
+Bu işlemlerin ardından projeyi çalıştırabilmek için ```flutter run``` komutunu vermeniz yeterli olacaktır. Konu ile ilgili daha detaylı bilgiye [buradan](https://flutter.dev/docs/deployment/android) ulaşabilirsiniz.
+
 ## Lisans
 [MIT License](LICENSE)
