@@ -64,8 +64,12 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
 
         final response = await accountService.patchAccount("Bearer $authToken",
             BuiltAccount((b) {
-          if (event.username.isNotEmpty) b..username = event.username;
-          if (event.password.isNotEmpty) b..password = event.password;
+          if (event.username != null && event.username.isNotEmpty)
+            b..username = event.username;
+          if (event.password != null && event.password.isNotEmpty)
+            b..password = event.password;
+          if (event.avatarTag != null && event.avatarTag.isNotEmpty)
+            b..avatarTag = event.avatarTag;
 
           return b;
         }));

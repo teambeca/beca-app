@@ -236,15 +236,34 @@ class _ProfileLoadedState extends State<ProfileLoaded> {
               overflow: Overflow.visible,
               alignment: Alignment.bottomRight,
               children: <Widget>[
-                MyAvatar(
-                  imageUri: "assets/avatars/admin.png",
-                  onTap: (imageUri) {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        fullscreenDialog: true,
-                        builder: (context) => AvatarSelectPage(),
-                      ),
-                    );
+                BlocBuilder<AccountBloc, AccountState>(
+                  builder: (context, accountState) {
+                    if (accountState is AccountSuccess)
+                      return new MyAvatar(
+                        imageUri: accountState.account.avatarTag != null
+                            ? "assets/avatars/${accountState.account.avatarTag}.png"
+                            : "assets/avatars/superhero.png",
+                        onTap: (imageUri) {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              fullscreenDialog: true,
+                              builder: (context) => AvatarSelectPage(),
+                            ),
+                          );
+                        },
+                      );
+                    else
+                      return new MyAvatar(
+                        imageUri: "assets/avatars/queen.png",
+                        onTap: (imageUri) {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              fullscreenDialog: true,
+                              builder: (context) => AvatarSelectPage(),
+                            ),
+                          );
+                        },
+                      );
                   },
                 ),
                 CircleAvatar(
@@ -538,7 +557,6 @@ class _ProfileLoadedState extends State<ProfileLoaded> {
                     if (_passwordController.text.isNotEmpty)
                       BlocProvider.of<AccountBloc>(context).add(
                         AccountPatch(
-                          username: widget.accountState.account.username,
                           password: _passwordController.text,
                         ),
                       );

@@ -103,6 +103,9 @@ class SelectableText extends StatelessWidget {
             opaque: false,
             pageBuilder: (_, __, ___) => QuestionAnswerPage(),
           ),
+          //           TransparentRoute(
+          //   builder: (_) => QuestionAnswerPage(),
+          // ),
         );
       },
       child: Text(

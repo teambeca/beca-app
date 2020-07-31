@@ -1,5 +1,7 @@
+import 'package:beca_app/bloc/account_bloc.dart';
 import 'package:beca_app/common_widgets/MyAvatar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AvatarSelectPage extends StatelessWidget {
   @override
@@ -8,8 +10,13 @@ class AvatarSelectPage extends StatelessWidget {
       Center(
         child: MyAvatar(
           onTap: (imageUri) {
-            print(imageUri);
-            Navigator.of(context).pop();
+            AccountState accountState = context.bloc<AccountBloc>().state;
+            if (accountState is AccountSuccess) {
+              context.bloc<AccountBloc>().add(AccountPatch(
+                    avatarTag: imageUri.substring(15).split(".")[0],
+                  ));
+              Navigator.of(context).pop();
+            } else {}
           },
           imageUri: "assets/avatars/queen.png",
         ),
@@ -17,8 +24,13 @@ class AvatarSelectPage extends StatelessWidget {
       Center(
         child: MyAvatar(
           onTap: (imageUri) {
-            print(imageUri);
-            Navigator.of(context).pop();
+            AccountState accountState = context.bloc<AccountBloc>().state;
+            if (accountState is AccountSuccess) {
+              context.bloc<AccountBloc>().add(AccountPatch(
+                    avatarTag: imageUri.substring(15).split(".")[0],
+                  ));
+              Navigator.of(context).pop();
+            } else {}
           },
           imageUri: "assets/avatars/man.png",
         ),
@@ -26,8 +38,13 @@ class AvatarSelectPage extends StatelessWidget {
       Center(
         child: MyAvatar(
           onTap: (imageUri) {
-            print(imageUri);
-            Navigator.of(context).pop();
+            AccountState accountState = context.bloc<AccountBloc>().state;
+            if (accountState is AccountSuccess) {
+              context.bloc<AccountBloc>().add(AccountPatch(
+                    avatarTag: imageUri.substring(15).split(".")[0],
+                  ));
+              Navigator.of(context).pop();
+            } else {}
           },
           imageUri: "assets/avatars/admin.png",
         ),
@@ -35,8 +52,13 @@ class AvatarSelectPage extends StatelessWidget {
       Center(
         child: MyAvatar(
           onTap: (imageUri) {
-            print(imageUri);
-            Navigator.of(context).pop();
+            AccountState accountState = context.bloc<AccountBloc>().state;
+            if (accountState is AccountSuccess) {
+              context.bloc<AccountBloc>().add(AccountPatch(
+                    avatarTag: imageUri.substring(15).split(".")[0],
+                  ));
+              Navigator.of(context).pop();
+            } else {}
           },
           imageUri: "assets/avatars/woman.png",
         ),
@@ -44,8 +66,13 @@ class AvatarSelectPage extends StatelessWidget {
       Center(
         child: MyAvatar(
           onTap: (imageUri) {
-            print(imageUri);
-            Navigator.of(context).pop();
+            AccountState accountState = context.bloc<AccountBloc>().state;
+            if (accountState is AccountSuccess) {
+              context.bloc<AccountBloc>().add(AccountPatch(
+                    avatarTag: imageUri.substring(15).split(".")[0],
+                  ));
+              Navigator.of(context).pop();
+            } else {}
           },
           imageUri: "assets/avatars/astronaut.png",
         ),
@@ -53,8 +80,13 @@ class AvatarSelectPage extends StatelessWidget {
       Center(
         child: MyAvatar(
           onTap: (imageUri) {
-            print(imageUri);
-            Navigator.of(context).pop();
+            AccountState accountState = context.bloc<AccountBloc>().state;
+            if (accountState is AccountSuccess) {
+              context.bloc<AccountBloc>().add(AccountPatch(
+                    avatarTag: imageUri.substring(15).split(".")[0],
+                  ));
+              Navigator.of(context).pop();
+            } else {}
           },
           imageUri: "assets/avatars/predator.png",
         ),
@@ -62,8 +94,13 @@ class AvatarSelectPage extends StatelessWidget {
       Center(
         child: MyAvatar(
           onTap: (imageUri) {
-            print(imageUri);
-            Navigator.of(context).pop();
+            AccountState accountState = context.bloc<AccountBloc>().state;
+            if (accountState is AccountSuccess) {
+              context.bloc<AccountBloc>().add(AccountPatch(
+                    avatarTag: imageUri.substring(15).split(".")[0],
+                  ));
+              Navigator.of(context).pop();
+            } else {}
           },
           imageUri: "assets/avatars/serial-killer.png",
         ),
@@ -71,8 +108,13 @@ class AvatarSelectPage extends StatelessWidget {
       Center(
         child: MyAvatar(
           onTap: (imageUri) {
-            print(imageUri);
-            Navigator.of(context).pop();
+            AccountState accountState = context.bloc<AccountBloc>().state;
+            if (accountState is AccountSuccess) {
+              context.bloc<AccountBloc>().add(AccountPatch(
+                    avatarTag: imageUri.substring(15).split(".")[0],
+                  ));
+              Navigator.of(context).pop();
+            } else {}
           },
           imageUri: "assets/avatars/skeleton.png",
         ),
@@ -80,8 +122,13 @@ class AvatarSelectPage extends StatelessWidget {
       Center(
         child: MyAvatar(
           onTap: (imageUri) {
-            print(imageUri);
-            Navigator.of(context).pop();
+            AccountState accountState = context.bloc<AccountBloc>().state;
+            if (accountState is AccountSuccess) {
+              context.bloc<AccountBloc>().add(AccountPatch(
+                    avatarTag: imageUri.substring(15).split(".")[0],
+                  ));
+              Navigator.of(context).pop();
+            } else {}
           },
           imageUri: "assets/avatars/superhero.png",
         ),
@@ -89,8 +136,13 @@ class AvatarSelectPage extends StatelessWidget {
       Center(
         child: MyAvatar(
           onTap: (imageUri) {
-            print(imageUri);
-            Navigator.of(context).pop();
+            AccountState accountState = context.bloc<AccountBloc>().state;
+            if (accountState is AccountSuccess) {
+              context.bloc<AccountBloc>().add(AccountPatch(
+                    avatarTag: imageUri.substring(15).split(".")[0],
+                  ));
+              Navigator.of(context).pop();
+            } else {}
           },
           imageUri: "assets/avatars/superhero2.png",
         ),

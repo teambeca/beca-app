@@ -1,5 +1,6 @@
 import 'package:beca_app/bloc/account_bloc.dart';
 import 'package:beca_app/bloc/leaderboard_bloc.dart';
+import 'package:beca_app/common_widgets/MyAvatar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -60,10 +61,12 @@ class LeaderBoardPage extends StatelessWidget {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                CircleAvatar(
-                                  backgroundColor:
-                                      Theme.of(context).primaryColorDark,
-                                  radius: 37.5,
+                                MyAvatar(
+                                  radius: 100.0,
+                                  imageUri: accountState.account.avatarTag !=
+                                          null
+                                      ? "assets/avatars/${accountState.account.avatarTag}.png"
+                                      : "assets/avatars/admin.png",
                                 ),
                                 SizedBox(height: 8.0),
                                 Text(
@@ -250,10 +253,13 @@ class LeaderBoardPage extends StatelessWidget {
                                             Theme.of(context).textTheme.button,
                                       ),
                                       SizedBox(width: 15),
-                                      CircleAvatar(
-                                        backgroundColor:
-                                            Theme.of(context).primaryColorDark,
-                                      ),
+                                      MyAvatar(
+                                          radius: 50.0,
+                                          imageUri: leaderboardState
+                                                      .users[index].avatarTag !=
+                                                  null
+                                              ? "assets/avatars/${leaderboardState.users[index].avatarTag}.png"
+                                              : "assets/avatars/admin.png"),
                                     ],
                                   ),
                                 ),

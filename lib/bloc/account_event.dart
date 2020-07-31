@@ -14,15 +14,18 @@ class AccountGet extends AccountEvent {}
 class AccountPatch extends AccountEvent {
   final String username;
   final String password;
+  final String avatarTag;
 
   const AccountPatch({
     this.username,
     this.password,
+    this.avatarTag,
   });
 
   @override
   List<Object> get props => [
         username,
         password,
+        avatarTag,
       ];
 }

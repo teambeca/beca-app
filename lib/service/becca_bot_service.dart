@@ -1,4 +1,3 @@
-import 'package:beca_app/model/built_account.dart';
 import 'package:beca_app/model/built_becca_bot_request.dart';
 import 'package:beca_app/model/built_becca_bot_response.dart';
 import 'package:beca_app/model/built_value_converter.dart';

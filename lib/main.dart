@@ -94,66 +94,62 @@ void main() {
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LeaderboardBloc, LeaderboardState>(
-      builder: (context, leaderboardState) {
-        return BlocBuilder<ThemeBloc, ThemeState>(
-          builder: (context, themeState) {
-            return MaterialApp(
-              debugShowCheckedModeBanner: false,
-              theme: themeState.themeDataMain,
-              home: BlocBuilder<AuthBloc, AuthState>(
-                builder: (context, authState) {
-                  // if (themeState is ThemeInitial) {
-                  //   BlocProvider.of<ThemeBloc>(context).add(ThemeStarted());
-                  //   return SplashPage();
-                  // }
-                  if (authState is AuthInitial) {
-                    BlocProvider.of<AuthBloc>(context).add(AuthStarted());
-                    return SplashPage();
-                  }
-                  if (authState is AuthSuccess) {
-                    return Theme(
-                      data: Theme.of(context).copyWith(
-                        textTheme: Theme.of(context).textTheme.apply(
-                              bodyColor: Colors.white,
-                              displayColor: Colors.white,
-                            ),
-                      ),
-                      child: MainPagesTabbar(),
-                    );
-                  }
-                  if (authState is AuthFailure) {
-                    return Theme(
-                      data: Theme.of(context).copyWith(
-                        textTheme: Theme.of(context).textTheme.apply(
-                              bodyColor: Colors.black,
-                              displayColor: Colors.black,
-                            ),
-                      ),
-                      child: AuthPagesStack(),
-                    );
-                  }
-                  if (authState is AuthInProgress) {
-                    return Scaffold(
-                      body: Container(
-                        child: Center(
-                          child: CircularProgressIndicator(),
+    return BlocBuilder<ThemeBloc, ThemeState>(
+      builder: (context, themeState) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: themeState.themeDataMain,
+          home: BlocBuilder<AuthBloc, AuthState>(
+            builder: (context, authState) {
+              // if (themeState is ThemeInitial) {
+              //   BlocProvider.of<ThemeBloc>(context).add(ThemeStarted());
+              //   return SplashPage();
+              // }
+              if (authState is AuthInitial) {
+                BlocProvider.of<AuthBloc>(context).add(AuthStarted());
+                return SplashPage();
+              }
+              if (authState is AuthSuccess) {
+                return Theme(
+                  data: Theme.of(context).copyWith(
+                    textTheme: Theme.of(context).textTheme.apply(
+                          bodyColor: Colors.white,
+                          displayColor: Colors.white,
                         ),
-                      ),
-                    );
-                  }
-
-                  return Scaffold(
-                    body: Container(
-                      child: Center(
-                        child: Text("Unknown Auth State"),
-                      ),
+                  ),
+                  child: MainPagesTabbar(),
+                );
+              }
+              if (authState is AuthFailure) {
+                return Theme(
+                  data: Theme.of(context).copyWith(
+                    textTheme: Theme.of(context).textTheme.apply(
+                          bodyColor: Colors.black,
+                          displayColor: Colors.black,
+                        ),
+                  ),
+                  child: AuthPagesStack(),
+                );
+              }
+              if (authState is AuthInProgress) {
+                return Scaffold(
+                  body: Container(
+                    child: Center(
+                      child: CircularProgressIndicator(),
                     ),
-                  );
-                },
-              ),
-            );
-          },
+                  ),
+                );
+              }
+
+              return Scaffold(
+                body: Container(
+                  child: Center(
+                    child: Text("Unknown Auth State"),
+                  ),
+                ),
+              );
+            },
+          ),
         );
       },
     );
