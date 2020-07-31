@@ -114,57 +114,60 @@ class _Question0CenterState extends State<Question0Center> {
           child: Wrap(
             children: <Widget>[
               ...this.widget.questionState.question.text.map(
-                    (wordValue) => FlatButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.zero,
-                      ),
-                      color: answers[wordValue] != null
-                          ? blobColors[answers[wordValue]].insideColor
-                          : Colors.indigo,
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          PageRouteBuilder(
-                            opaque: false,
-                            pageBuilder: (_, __, ___) => QuestionAnswerPage(
-                              onTap: (selectedValue) {
-                                if (answers[wordValue] != null) {
-                                  answers[wordValue] = selectedValue;
-                                } else {
-                                  answers.putIfAbsent(
-                                      wordValue, () => selectedValue);
-                                }
+                    (wordValue) => Padding(
+                      padding: const EdgeInsets.all(2.0),
+                      child: FlatButton(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.zero,
+                        ),
+                        color: answers[wordValue] != null
+                            ? blobColors[answers[wordValue]].insideColor
+                            : Colors.white.withOpacity(.5),
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            PageRouteBuilder(
+                              opaque: false,
+                              pageBuilder: (_, __, ___) => QuestionAnswerPage(
+                                onTap: (selectedValue) {
+                                  if (answers[wordValue] != null) {
+                                    answers[wordValue] = selectedValue;
+                                  } else {
+                                    answers.putIfAbsent(
+                                        wordValue, () => selectedValue);
+                                  }
 
-                                setState(() {});
+                                  setState(() {});
 
-                                this.widget.onChange(
-                                      List.generate(
-                                        this
-                                            .widget
-                                            .questionState
-                                            .question
-                                            .text
-                                            .length,
-                                        (index) =>
-                                            answers[this
-                                                .widget
-                                                .questionState
-                                                .question
-                                                .text[index]] ??
-                                            -1,
-                                      ),
-                                    );
-                              },
+                                  this.widget.onChange(
+                                        List.generate(
+                                          this
+                                              .widget
+                                              .questionState
+                                              .question
+                                              .text
+                                              .length,
+                                          (index) =>
+                                              answers[this
+                                                  .widget
+                                                  .questionState
+                                                  .question
+                                                  .text[index]] ??
+                                              -1,
+                                        ),
+                                      );
+                                },
+                              ),
                             ),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        wordValue,
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context)
-                            .textTheme
-                            .button
-                            .copyWith(color: Colors.white),
+                          );
+                        },
+                        child: Text(
+                          wordValue,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context)
+                              .textTheme
+                              .button
+                              .copyWith(color: Colors.white),
+                        ),
                       ),
                     ),
                   )
